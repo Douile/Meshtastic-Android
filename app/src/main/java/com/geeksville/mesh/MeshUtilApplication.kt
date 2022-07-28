@@ -6,7 +6,7 @@ import com.geeksville.android.BuildUtils.isEmulator
 import com.geeksville.android.GeeksvilleApplication
 import com.geeksville.android.Logging
 import com.geeksville.util.Exceptions
-import com.google.firebase.crashlytics.FirebaseCrashlytics
+// import com.google.firebase.crashlytics.FirebaseCrashlytics
 import dagger.hilt.android.HiltAndroidApp
 
 // NOTE: This is a workaround since the Hilt Gradle plugin doesn't support constructors with default parameters
@@ -23,6 +23,7 @@ class MeshUtilApplication : GeeksvilleApplicationWrapper() {
         // We default to off in the manifest - we turn on here if the user approves
         // leave off when running in the debugger
         if (!isEmulator && (!BuildConfig.DEBUG || !Debug.isDebuggerConnected())) {
+            /*
             val crashlytics = FirebaseCrashlytics.getInstance()
             crashlytics.setCrashlyticsCollectionEnabled(isAnalyticsAllowed)
             crashlytics.setCustomKey("debug_build", BuildConfig.DEBUG)
@@ -52,6 +53,8 @@ class MeshUtilApplication : GeeksvilleApplicationWrapper() {
                 crashlytics.recordException(exception)
                 sendCrashReports() // Send the new report
             }
+            */
+
         }
     }
 }
